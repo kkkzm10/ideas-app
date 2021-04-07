@@ -2,11 +2,11 @@ class IdeasController < ApplicationController
   def index
     @ideas = Idea.all
 
-     render json: @ideas
+    render json: @ideas
   end
 
   def create
-     @idea = Idea.new(idea_params)
+    @idea = Idea.new(idea_params)
 
     if @idea.save
       render json: @idea, status: :created, location: @idea
@@ -15,10 +15,9 @@ class IdeasController < ApplicationController
     end
   end
 
-
   private
 
   def idea_params
-    params.require(:idea).permit(:catagory_id,:body)
+    params.require(:idea).permit(:catagory_id, :body)
   end
 end
